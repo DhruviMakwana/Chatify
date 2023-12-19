@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Chat Applcation</h1>
+    <textarea id="chatlog" cols="50" rows="2"></textarea><br>
+    <input type="text" id="chat-message-input" size="50"><br>
+    <input type="button" value="send" id="chat-message-submit">
+</body>
+<script>
+
+    var ws = new WebSocket('ws://127.0.0.1:8000/chat/sc/')
+    ws.onopen = function () {
+        console.log('websocket conection open')
+    }
+    ws.onclose = function (event) {
+        console.log("message close successfully")
+    }
+
+</script>
+</html>
+

@@ -1,0 +1,26 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<script src="{% static 'js/login.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+<div class="wrapper">
+   <div class="title">Login Form</div>
+   <form method="post" enctype="multipart/form-data" id="login_form">
+      {% csrf_token %}
+      <small class="errMsg mt-2" id="error"></small>
+      <div class="field">
+         <input type="text" name="username" required>
+         <label>Username</label>
+      </div>
+      <div class="field">
+         <input type="password" name="password" required>
+         <label>Password</label>
+      </div>
+      <div class="field">
+         <input type="submit" value="Login" id="submit" onclick="login(event)">
+      </div>
+   </form>
+</div>
+{% endblock %}

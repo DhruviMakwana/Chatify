@@ -1,0 +1,50 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+{% block title %} register {% endblock %}
+{% block content %}
+<script src="{% static 'js/register.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+
+<div class="wrapper">
+   <div class="title">Register Form</div>
+   <form method="post" enctype="multipart/form-data" id="register_form">
+      {% csrf_token %}
+      <div class="field">
+         <input type="text" name="username" required >
+         <label>Username</label>
+         <small class="errMsg" id="username"></small>
+      </div>
+      <div class="field">
+         <input type="email" name="email" required>
+         <label>Email Address</label>
+         <small class="errMsg" id="email"></small>
+      </div>
+      <div class="field">
+         <input type="password" name="password" required>
+         <label>Password</label>
+         <small class="errMsg" id="password"></small>
+      </div>
+      <div class="field">
+         <input type="password" name="confirm_password" required>
+         <label>Confirm_Password</label>
+         <small class="errMsg" id="confirm_password"></small>
+
+      </div>
+      <div class="field">
+         <input type="text" name="mobile_number" required>
+         <label>Mobile</label>
+         <small class="errMsg" id="phonenumber"></small>
+      </div>
+      <div class="field">
+         <input type="file" class="pt-2" name="profile_photo">
+         <small class="errMsg" id="profileerror"></small>
+      </div>
+      <div class="field">
+         <input type="submit" value="Register" id="submit" onclick="register(event)">
+      </div>
+      <div class="signup-link">Already a user ?..<a href="{% url 'chat:loginUI' %}">Login</a></div>
+   </form>
+</div>
+{% endblock %}
+
